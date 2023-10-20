@@ -49,6 +49,6 @@ else
     export ARCH=$(echo $SERVICE | yq .arch)
 fi
 
-curl --location --request PUT "https://integration-middleware-2.qiscus.com/api/alpha/update_applications" \
+curl --silent --location --request PUT "https://integration-middleware-2.qiscus.com/api/alpha/update_applications" \
 --header "Content-Type: application/json" --header "x-secret-signature: "$PROJECT_CENTRAL_TOKEN"" \
 --data '{ "name": "'"$NAME_SERVICE"'", "image": "'"$IMAGE_TAG"'", "app_label": "'"$NAME_SERVICE"'", "port": '$PORT_SERVICE', "env": "'"$ENV"'", "command": "'"$COMMAND"'", "arch": "'"$ARCH"'"}'
